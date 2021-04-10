@@ -1,21 +1,19 @@
 const express = require('express')
+const { adaptRoute } = require('../adapters/http-routes-adapter')
 const router = express.Router()
+const {
+  createPlanetController,
+  listPlanetController,
+  updatePlanetController,
+  deletePlanetController
+} = require('../controllers/planet')
 
-router.get('/:id?', function (req, res) {
-  if (req.params.id) res.send(`Hello World planet with id: ${req.params.id}`)
-  res.send('Hello World planet!')
-})
+router.post('/', adaptRoute(createPlanetController))
 
-router.post('/', function (req, res) {
-  res.send('Hello World post!')
-})
+router.get('/:id?', adaptRoute(listPlanetController))
 
-router.put('/:id', function (req, res) {
-  res.send('Hello World put!')
-})
+router.put('/:id', adaptRoute(updatePlanetController))
 
-router.delete('/:id', function (req, res) {
-  res.send('Hello World delete!')
-})
+router.delete('/:id', adaptRoute(deletePlanetController))
 
-module.exports = router
+module.exports = { planetsRoutes: router }
