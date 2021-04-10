@@ -1,4 +1,4 @@
-import { StatusCodes } from 'http-status-codes'
+const { StatusCodes } = require('http-status-codes')
 
 const _makeHttpResponse = (statusCode, body = {}) => ({ statusCode, body })
 
