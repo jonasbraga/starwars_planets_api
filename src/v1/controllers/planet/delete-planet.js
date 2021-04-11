@@ -1,7 +1,21 @@
+const { Planet } = require('../../models/planet-model')
 const httpResponse = require('../../helpers/http-response-helper')
+const { isObjectId } = require('../../validations/utils')
 
 const handle = async httpRequest => {
-  return httpResponse.noContent()
+  try {
+    const { pathParams: { id } } = httpRequest
+
+    if (!isObjectId(id)) return httpResponse.badRequest({ message: 'Invalid ID' })
+
+    const planets = await Planet.findByIdAndDelete(id)
+
+    return planets
+      ? httpResponse.noContent()
+      : httpResponse.notFound({ message: `No planet found with id: ${id}` })
+  } catch (error) {
+    return httpResponse.serverError({ message: error.message })
+  }
 }
 
 module.exports = { handle }
