@@ -12,6 +12,8 @@ const badRequest = body => _makeHttpResponse(StatusCodes.BAD_REQUEST, body)
 
 const notFound = body => _makeHttpResponse(StatusCodes.NOT_FOUND, body)
 
+const conflict = body => _makeHttpResponse(StatusCodes.CONFLICT, body)
+
 const serverError = body => _makeHttpResponse(StatusCodes.INTERNAL_SERVER_ERROR, body)
 
 module.exports = {
@@ -20,5 +22,6 @@ module.exports = {
   noContent,
   badRequest,
   notFound,
+  conflict,
   serverError
 }
