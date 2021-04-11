@@ -1,6 +1,6 @@
 const { Planet } = require('../../models/planet-model')
 const httpResponse = require('../../helpers/http-response-helper')
-const { isObjectId } = require('../../validations')
+const { isObjectId } = require('../../validations/utils')
 
 const handle = async httpRequest => {
   try {
