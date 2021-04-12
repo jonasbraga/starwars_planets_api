@@ -6,6 +6,7 @@ const handle = async httpRequest => {
   try {
     const { pathParams: { id } } = httpRequest
 
+    if (!id) return httpResponse.badRequest({ message: 'Missing planet ID' })
     if (!isObjectId(id)) return httpResponse.badRequest({ message: 'Invalid ID' })
 
     const planets = await Planet.findByIdAndDelete(id)
