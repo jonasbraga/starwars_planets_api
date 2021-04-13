@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  server:
+    image: jonasbraga/starwars-planets:1.0
+    container_name: node_server
+    volumes:
+      - ./:/home/app      
+    depends_on:
+      - db
+    ports:
+      - '${PORT}:${PORT}'
+
+  db:
+    image: mongo:4.4
+    container_name: db
+    restart: always
+    ports:
+        - ${DB_PORT}:27017
+    environment:
+        MONGO_INITDB_DATABASE: ${DB_NAME}
+    volumes:
+        - mongodb:/data/db
+    
+volumes:
+  mongodb:
