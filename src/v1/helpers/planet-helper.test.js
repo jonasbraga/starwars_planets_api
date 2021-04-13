@@ -1,5 +1,5 @@
 const nock = require('nock')
-const { getPlanetRelatedFilms, hasValidFields } = require('./create-planet-helper')
+const { getPlanetRelatedFilms, hasValidFields } = require('./planet-helper')
 const { tatooinePlanetResponse, unknowPlanetResponse } = require('./mocks/swapi.mock')
 
 describe('Create planet helper', () => {
