@@ -13,7 +13,6 @@ describe('Create planet', () => {
   })
   test('Should return 204 status code and delete a planet if the provided ID exists in database', async () => {
     const planet = await makePlanet()
-    console.log(planet)
 
     const { statusCode, body } = await handle({ pathParams: { id: planet._id.toString() } })
 
