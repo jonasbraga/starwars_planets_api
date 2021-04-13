@@ -1,6 +1,6 @@
 const { Planet } = require('../../models/planet-model')
 const httpResponse = require('../../helpers/http-response-helper')
-const { getPlanetRelatedFilms, hasValidFields } = require('../../helpers/create-update-planet-helper')
+const { getPlanetRelatedFilms, hasValidFields } = require('../../helpers/planet-helper')
 
 const handle = async httpRequest => {
   try {
