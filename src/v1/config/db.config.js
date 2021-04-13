@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 
 mongoose.Promise = global.Promise
 
-const dbConnection = mongoose.connect(process.env.DB_CONNECTION_STRING, {
+const { DB_HOST, DB_PORT, DB_NAME } = process.env
+
+const dbConnection = mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useFindAndModify: false,
@@ -12,7 +14,7 @@ const dbConnection = mongoose.connect(process.env.DB_CONNECTION_STRING, {
   return mongoose.connection
 }, err => {
   console.log(`Database connect error: ${err}`)
-  process.exit()
+  process.exit(1)
 })
 
 module.exports = { dbConnection }
