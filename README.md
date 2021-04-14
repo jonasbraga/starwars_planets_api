@@ -13,15 +13,9 @@
 
 ```git clone https://github.com/jonasbraga/starwars_planets_api.git```
 
-**Renomeie o arquivo <code>.env-example</code> para <code>.env</code> e adicione as respectivas variáveis:**
+**Na pasta raiz do projeto execute o comando ```make prepare``` para copiar o arquivo ```.env.example``` para ```.env``` e setar as variáveis de ambiente**
 
-```
-PORT=3000
-DB_HOST=db
-DB_PORT=27017
-DB_NAME=starwars
-```
-*Obs: Certifique-se de que as portas acima não estejam sendo utilizadas por nenhum outro serviço*
+*Obs: Certifique-se de que as portas 3000 e 27017 não estejam sendo utilizadas por nenhum outro serviço, caso contrário ocorrerá um conflito entre as portas*
 
 # :runner: Getting Started
 

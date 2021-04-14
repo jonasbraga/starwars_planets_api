@@ -6,8 +6,9 @@ blue=`tput setaf 4`
 set_prod_db=`sed -i '/DB_NAME=*/c\DB_NAME=starwars' .env`
 set_test_db=`sed -i '/DB_NAME=*/c\DB_NAME=starwars-tests' .env`
 
-build:
-	docker-compose build
+prepare:
+	cp .env.example .env
+	echo -e "# Server\nPORT=3000\n\n# DB\nDB_HOST=db\nDB_PORT=27017\nDB_NAME=starwars\n" > .env
 
 up:
 	${set_prod_db}
@@ -35,10 +36,11 @@ sh\:db:
 	docker-compose exec db bash
 
 help:
-	@ echo "$(green) make build	$(white) Build or rebuild services"
-	@ echo "$(green) make up	$(white) Run application containers"
-	@ echo "$(green) make down	$(white) Stops containers and $(red)REMOVES $(white)containers and networks created by $(green)make up"
-	@ echo "$(green) make start	$(white) Starts existing containers after $(green)make stop"
-	@ echo "$(green) make stop	$(white) Stops running containers without removing them. They can be started again with $(green)make start"
-	@ echo "$(green) make sh	$(white) Connects to the server container by sh"
-	@ echo "$(green) make sh:db	$(white) Connects to the database container by sh"
+	@ echo "$(green) make prepare $(white) Set environment variables "
+	@ echo "$(green) make up	  $(white) Run application containers"
+	@ echo "$(green) make tests	  $(white) Run application tests inside container"
+	@ echo "$(green) make down	  $(white) Stops containers and $(red)REMOVES $(white)containers and networks created by $(green)make up"
+	@ echo "$(green) make start	  $(white) Starts existing containers after $(green)make stop"
+	@ echo "$(green) make stop	  $(white) Stops running containers without removing them. They can be started again with $(green)make start"
+	@ echo "$(green) make sh	  $(white) Connects to the server container by sh"
+	@ echo "$(green) make sh:db	  $(white) Connects to the database container by sh"
