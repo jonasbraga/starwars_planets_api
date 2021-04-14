@@ -6,6 +6,7 @@ services:
     container_name: node_server
     volumes:
       - ./:/home/app      
+      - /home/app/node_modules
     depends_on:
       - db
     ports:
