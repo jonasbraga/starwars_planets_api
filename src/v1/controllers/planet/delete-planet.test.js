@@ -8,9 +8,14 @@ const makePlanet = async () => {
   return await planet.save()
 }
 describe('Create planet', () => {
+  beforeAll(async () => {
+    await Planet.deleteMany()
+  })
+
   afterAll(async () => {
     (await dbConnection).close()
   })
+
   test('Should return 204 status code and delete a planet if the provided ID exists in database', async () => {
     const planet = await makePlanet()
 
