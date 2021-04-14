@@ -1,0 +1,539 @@
+{
+	"info": {
+		"_postman_id": "7a26e433-ae74-428b-8ceb-b77dff98baf9",
+		"name": "Star Wars Planets",
+		"description": "APIs para manipulação de planetas do universo Star Wars\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create planet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Bespin 2 delete\",\n    \"climate\": \"temperate\",\n    \"terrain\": \"gas giant\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/v1/planets",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"planets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create planet",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bespin\",\n    \"climate\": \"temperate\",\n    \"terrain\": \"gas giant\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/planets",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"planets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "197"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c5-Yosb29zHcfPeR6Gahg/3Dnb6D14\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Apr 2021 01:38:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"60764784e0d775001461e5ac\",\n    \"name\": \"Bespin\",\n    \"climate\": \"temperate\",\n    \"terrain\": \"gas giant\",\n    \"relatedFilms\": 1,\n    \"createdAt\": \"2021-04-14T01:38:12.260Z\",\n    \"updatedAt\": \"2021-04-14T01:38:12.260Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Get planet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/planets/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"planets",
+						":id"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Bespin",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get planet by name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/planets/?name=Bespin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"planets",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Bespin"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "199"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c7-tkDBqZdVIMEfR19QFvKSoLnW1FY\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Apr 2021 01:24:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"60752a24c00b5c001380f2c1\",\n        \"name\": \"Bespin\",\n        \"climate\": \"temperate\",\n        \"terrain\": \"gas giant\",\n        \"relatedFilms\": 1,\n        \"createdAt\": \"2021-04-13T05:20:36.900Z\",\n        \"updatedAt\": \"2021-04-14T01:06:27.204Z\",\n        \"__v\": 0\n    }\n]"
+				},
+				{
+					"name": "Get planet by ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/planets/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"planets",
+								":id"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Bespin",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "60763fc7e0d775001461e5ab"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "193"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c1-ytB0MsMNPja7v+6VwYSlSLMdCLM\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Apr 2021 01:25:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"60763fc7e0d775001461e5ab\",\n    \"name\": \"Kamino\",\n    \"climate\": \"temperate\",\n    \"terrain\": \"ocean\",\n    \"relatedFilms\": 1,\n    \"createdAt\": \"2021-04-14T01:05:11.702Z\",\n    \"updatedAt\": \"2021-04-14T01:05:11.702Z\",\n    \"__v\": 0\n}"
+				},
+				{
+					"name": "Get all planets",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/planets/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"planets",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Bespin",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "393"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"189-uLVeWK/Ae0sCelTM0MOWOdfDWzY\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Apr 2021 01:21:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"60752a24c00b5c001380f2c1\",\n        \"name\": \"Bespin\",\n        \"climate\": \"temperate\",\n        \"terrain\": \"gas giant\",\n        \"relatedFilms\": 1,\n        \"createdAt\": \"2021-04-13T05:20:36.900Z\",\n        \"updatedAt\": \"2021-04-14T01:06:27.204Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"60763fc7e0d775001461e5ab\",\n        \"name\": \"Kamino\",\n        \"climate\": \"temperate\",\n        \"terrain\": \"ocean\",\n        \"relatedFilms\": 1,\n        \"createdAt\": \"2021-04-14T01:05:11.702Z\",\n        \"updatedAt\": \"2021-04-14T01:05:11.702Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Update planet",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Tatooine\",\n    \"climate\": \"arid\",\n    \"terrain\": \"desert\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/v1/planets/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"planets",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "60752a24c00b5c001380f2c1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update planet",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Tatooine\",\n    \"climate\": \"arid\",\n    \"terrain\": \"desert\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/planets/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"planets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "60752a24c00b5c001380f2c1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "191"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"bf-p7CBoTMSATHttgLpb6vWcz47ooE\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Apr 2021 01:37:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"60752a24c00b5c001380f2c1\",\n    \"name\": \"Tatooine\",\n    \"climate\": \"arid\",\n    \"terrain\": \"desert\",\n    \"relatedFilms\": 5,\n    \"createdAt\": \"2021-04-13T05:20:36.900Z\",\n    \"updatedAt\": \"2021-04-14T01:37:09.587Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete planet",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/planets/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"planets",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6076479de0d775001461e5ad"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete planet",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/planets/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"planets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6076479de0d775001461e5ad"
+								}
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Apr 2021 01:38:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
